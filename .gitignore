@@ -1,0 +1,12 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Node / build
+node_modules/
+dist/
+
+# Local site cache
+.cache/

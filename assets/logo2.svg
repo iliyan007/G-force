@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340">
+  <!-- Propeller outline (3 blades) -->
+  <g fill="none" stroke="#4a4a4a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1">
+    <!-- Blade 1 - top -->
+    <path d="M250 18 L236 138 L248 142 C 248 142 220 82 250 18 Z M250 18 C 205 18 168 62 172 118 C 174 136 182 152 194 164"/>
+    <!-- Blade 1 right edge -->
+    <path d="M264 138 L250 18"/>
+    <!-- Blade 2 - bottom left -->
+    <path d="M38 228 L158 192 L168 208 C 168 208 108 268 38 228 Z M38 228 C 58 268 118 278 158 232"/>
+    <!-- Blade 3 - bottom right -->
+    <path d="M462 288 L342 192 L332 208 C 332 208 392 212 462 288 Z M462 288 C 488 252 472 202 432 182 L 390 182"/>
+    <path d="M390 182 C 410 182 428 192 432 182"/>
+  </g>
+  <!-- G logos - thick interlocked -->
+  <g>
+    <!-- Left G - mirrored (facing left) -->
+    <path fill="#000" d="M 132 128 L 48 128 L 48 156 L 88 156 L 88 136 L 64 136 
+      C 64 136 64 118 82 108 C 96 100 116 102 128 114 L 146 96 
+      C 126 76 92 68 62 84 C 32 100 22 138 40 166 L 58 184
+      C 58 184 22 164 22 128 Z"/>
+    <!-- Simpler: use text based approach for clarity -->
+  </g>
+</svg>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G-Force | Fontys Hovercraft Project</title>
+  <meta name="description" content="G-Force: Fontys Mechanical Engineering hovercraft project. Meet the team and follow our build progress in the gallery.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body id="top">
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo" aria-label="G-Force home">
+        <img class="nav-logo-img" src="logo.svg" alt="G-Force">
+        <span class="nav-logo-text">G-<span>Force</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#meet">Meet us</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <img class="hero-logo" src="logo.svg" alt="G-Force logo">
+      <h1 class="hero-title">G-<span>Force</span></h1>
+      <p class="hero-sub">Fontys mechanical engineering students designing and building a hovercraft from the ground up.</p>
+      <div class="hero-cta">
+        <a href="#gallery" class="btn">See the build progress</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECT STATS -->
+  <section class="stat-band" aria-label="Project stats">
+    <div class="stat-cell">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Team members</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Hovercraft</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">4</div>
+      <div class="stat-label">Working days</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <h2 class="section-title">What we're building</h2>
+      <p class="section-desc">A student engineering team on a mission to design, build, and race a hovercraft.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-lead">
+        <div class="about-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 13a8 8 0 0 1 16 0"/>
+            <path d="M2 13h20"/>
+            <path d="M12 13l3-4"/>
+            <path d="M2 16v3h20v-3"/>
+          </svg>
+        </div>
+        <h3>The Hovercraft</h3>
+        <p>A skirted air-cushion vehicle built to travel over ground and water. We engineer every part: hull design, propulsion, skirt system, controls, and powertrain. Six engineers, one goal.</p>
+      </div>
+      <ul class="pillar-list">
+        <li class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3 2 8l10 5 10-5-10-5z"/>
+              <path d="M6 10.5V15a10 3 0 0 0 12 0v-4.5"/>
+              <path d="M12 13l0 8"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <h4>Fontys Mechanical Engineering</h4>
+            <p>Students at Fontys University of Applied Sciences. This project is part of the program: building real things, solving real problems.</p>
+          </div>
+        </li>
+        <li class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18"/>
+              <path d="M5 6l14 12"/>
+              <path d="M19 6 5 18"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <h4>Engineering Process</h4>
+            <p>From CAD models and FEA simulations to CNC-cut parts and hands-on assembly, every step is documented on this site.</p>
+          </div>
+        </li>
+        <li class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l2.4 5.1 5.6.6-4.1 3.8 1 5.5-4.9-2.7-4.9 2.7 1-5.5L4 7.7l5.6-.6L12 2z"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <h4>G-Force</h4>
+            <p>Six engineers, one goal. Mechanical design, electrical systems, materials, testing, and project management.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <h2 class="section-title">Build progress</h2>
+      <p class="section-desc">Photos from the workshop: design, fabrication, and testing.</p>
+    </div>
+    <div class="filters" id="galleryFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="2026-09">September 2026</button>
+      <button class="filter-btn" data-filter="2026-08">August 2026</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- MEET US -->
+  <section class="section" id="meet">
+    <div class="section-head">
+      <h2 class="section-title">Meet the team</h2>
+      <p class="section-desc">Six engineers from Fontys turning a hovercraft idea into a working machine.</p>
+    </div>
+    <div class="team-grid">
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">ML</div>
+        <h3>Meir Levi</h3>
+        <p>Lead Engineer</p>
+      </article>
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">IB</div>
+        <h3>Ilyan Bozhanov</h3>
+        <p>Project Engineer</p>
+      </article>
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">AS</div>
+        <h3>Andor Stipsits</h3>
+        <p>Production Engineer</p>
+      </article>
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">MK</div>
+        <h3>Mariia Kozko</h3>
+        <p>Test Engineer</p>
+      </article>
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">KB</div>
+        <h3>Kerem B&uuml;rke</h3>
+        <p>Quality Engineer</p>
+      </article>
+      <article class="member">
+        <div class="member-avatar" aria-hidden="true">ES</div>
+        <h3>Elias Soukrati</h3>
+        <p>Lead PR</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img class="footer-logo-img" src="logo.svg" alt="G-Force logo">
+    <p class="footer-text">G-Force | Fontys Mechanical Engineering</p>
+    <p class="footer-text">Building a hovercraft, one day at a time.</p>
+    <ul class="footer-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#meet">Meet us</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
