@@ -2,191 +2,349 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G-Force | Fontys Hovercraft Project</title>
-  <meta name="description" content="G-Force: Fontys Mechanical Engineering hovercraft project. Meet the team and follow our build progress in the gallery.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>G-Force — Hovercraft Engineering</title>
+  <meta name="description" content="Design, aerodynamics, propulsion, and build logs for the G-Force hovercraft project.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+
+  <!-- Typography: Instrument Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..600;1,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
 </head>
 <body id="top">
 
-  <!-- NAVIGATION -->
-  <nav class="nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="#top" class="nav-logo" aria-label="G-Force home">
-        <img class="nav-logo-img" src="logo.svg" alt="G-Force">
-        <span class="nav-logo-text">G-<span>Force</span></span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#meet">Meet us</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <div class="page">
 
-  <!-- HERO -->
-  <header class="hero" id="hero">
-    <div class="hero-inner">
-      <img class="hero-logo" src="logo.svg" alt="G-Force logo">
-      <h1 class="hero-title">G-<span>Force</span></h1>
-      <p class="hero-sub">Fontys mechanical engineering students designing and building a hovercraft from the ground up.</p>
-      <div class="hero-cta">
-        <a href="#gallery" class="btn">See the build progress</a>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="#top" class="brand" aria-label="G-Force">
+          <img src="logo.svg" alt="" class="brand-logo" width="22" height="18">
+          <span class="brand-title">G-Force</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#systems">Subsystems</a></li>
+            <li><a href="#specifications">Specs</a></li>
+            <li><a href="#logs">Build Logs</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </nav>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- PROJECT STATS -->
-  <section class="stat-band" aria-label="Project stats">
-    <div class="stat-cell">
-      <div class="stat-value">6</div>
-      <div class="stat-label">Team members</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-value">1</div>
-      <div class="stat-label">Hovercraft</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-value">4</div>
-      <div class="stat-label">Working days</div>
-    </div>
-  </section>
+    <main>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="section-head">
-      <h2 class="section-title">What we're building</h2>
-      <p class="section-desc">A student engineering team on a mission to design, build, and race a hovercraft.</p>
-    </div>
-    <div class="about-grid">
-      <div class="about-lead">
-        <div class="about-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 13a8 8 0 0 1 16 0"/>
-            <path d="M2 13h20"/>
-            <path d="M12 13l3-4"/>
-            <path d="M2 16v3h20v-3"/>
-          </svg>
+      <!-- HERO -->
+      <section class="hero" id="overview">
+        <h1 class="hero-title">Hovercraft Project</h1>
+        <p class="hero-lead">Design, aerodynamics, propulsion, and fabrication documentation for the G-Force dual-drive hovercraft.</p>
+      </section>
+
+      <!-- KEY SPECS STRIP -->
+      <section class="summary-band" aria-label="Key vehicle summary">
+        <div class="summary-item">
+          <span class="summary-label">Vehicle</span>
+          <span class="summary-value">Skirted Hovercraft</span>
         </div>
-        <h3>The Hovercraft</h3>
-        <p>A skirted air-cushion vehicle built to travel over ground and water. We engineer every part: hull design, propulsion, skirt system, controls, and powertrain. Six engineers, one goal.</p>
+        <div class="summary-item">
+          <span class="summary-label">Powertrain</span>
+          <span class="summary-value">Decoupled Lift &amp; Thrust</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Target Mass</span>
+          <span class="summary-value">4.2 kg All-Up Weight</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Status</span>
+          <span class="summary-value">CAD &amp; Prototype Stage</span>
+        </div>
+      </section>
+
+      <!-- SUBSYSTEMS -->
+      <section class="section" id="systems">
+        <h2 class="section-label">Subsystems</h2>
+
+        <div class="systems-flow">
+
+          <!-- System 01: Hull -->
+          <article class="system-row">
+            <div class="system-meta">
+              <h3 class="system-title">Hull Structure</h3>
+              <p class="system-tagline">Composite deck &bull; Planing bow</p>
+              <button class="toggle-btn" type="button" aria-expanded="false" aria-controls="spec-hull">
+                <span class="toggle-text">Specifications</span>
+                <span class="toggle-arrow">&darr;</span>
+              </button>
+            </div>
+            <div class="system-body">
+              <p class="system-desc">
+                The main chassis is designed in Autodesk Fusion 360 with internal bulkheads to distribute aerodynamic pressure while keeping total weight to a minimum. A 28&deg; planing deadrise at the bow prevents plowing during water transitions.
+              </p>
+              <div class="drawer" id="spec-hull">
+                <div class="drawer-inner">
+                  <ul class="spec-list">
+                    <li><strong>Dimensions:</strong> 850 &times; 520 &times; 260 mm</li>
+                    <li><strong>Structure:</strong> High-density XPS core with composite skin</li>
+                    <li><strong>Mass Allocation:</strong> 2.40 kg dry chassis weight</li>
+                    <li><strong>Air Distribution:</strong> Internal channels routing flow directly into skirt perimeter</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- System 02: Skirt -->
+          <article class="system-row">
+            <div class="system-meta">
+              <h3 class="system-title">Segmented Skirt</h3>
+              <p class="system-tagline">24 individual finger segments</p>
+              <button class="toggle-btn" type="button" aria-expanded="false" aria-controls="spec-skirt">
+                <span class="toggle-text">Specifications</span>
+                <span class="toggle-arrow">&darr;</span>
+              </button>
+            </div>
+            <div class="system-body">
+              <p class="system-desc">
+                An open-finger segmented skirt system retains static cushion pressure beneath the hull. Independent fingers flex individually over uneven terrain without deflating the adjacent air cushion, maintaining a 20mm hover height.
+              </p>
+              <div class="drawer" id="spec-skirt">
+                <div class="drawer-inner">
+                  <ul class="spec-list">
+                    <li><strong>Material:</strong> 110 g/m&sup2; polyurethane-coated ripstop nylon</li>
+                    <li><strong>Segment Count:</strong> 24 individually replaceable finger modules</li>
+                    <li><strong>Plenum Pressure:</strong> ~215 Pa calculated equilibrium pressure</li>
+                    <li><strong>Ground Clearance:</strong> 20 mm nominal operating float</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- System 03: Powertrain -->
+          <article class="system-row">
+            <div class="system-meta">
+              <h3 class="system-title">Dual Powertrain</h3>
+              <p class="system-tagline">Independent lift &amp; thrust fans</p>
+              <button class="toggle-btn" type="button" aria-expanded="false" aria-controls="spec-powertrain">
+                <span class="toggle-text">Specifications</span>
+                <span class="toggle-arrow">&darr;</span>
+              </button>
+            </div>
+            <div class="system-body">
+              <p class="system-desc">
+                Decoupled brushless electric drives allow the lift impeller to maintain constant plenum volume while the horizontal thrust fan provides proportional forward acceleration.
+              </p>
+              <div class="drawer" id="spec-powertrain">
+                <div class="drawer-inner">
+                  <ul class="spec-list">
+                    <li><strong>Lift Drive:</strong> Outrunner BLDC motor with multi-vane static pressure impeller</li>
+                    <li><strong>Thrust Drive:</strong> Ducted propeller delivering up to 18.5 N forward thrust</li>
+                    <li><strong>Power Source:</strong> 4S (14.8V) 4500 mAh LiPo battery pack</li>
+                    <li><strong>Speed Controllers:</strong> Dual 40A telemetry-capable brushless ESCs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- System 04: Steering Linkage -->
+          <article class="system-row">
+            <div class="system-meta">
+              <h3 class="system-title">Steering Linkage</h3>
+              <p class="system-tagline">Dual-vane vectoring rudders</p>
+              <button class="toggle-btn" type="button" aria-expanded="false" aria-controls="spec-steering">
+                <span class="toggle-text">Specifications</span>
+                <span class="toggle-arrow">&darr;</span>
+              </button>
+            </div>
+            <div class="system-body">
+              <p class="system-desc">
+                Dual symmetrical aerodynamic rudders operate directly in the thrust propwash. A metal-gear digital servo with zero-backlash ball links drives the rudders across a &plusmn;35&deg; range for immediate yaw authority.
+              </p>
+              <div class="drawer" id="spec-steering">
+                <div class="drawer-inner">
+                  <ul class="spec-list">
+                    <li><strong>Rudder Configuration:</strong> Twin balanced NACA 0012 profile airfoils</li>
+                    <li><strong>Deflection Range:</strong> &plusmn;35&deg; proportional deflection</li>
+                    <li><strong>Actuation:</strong> High-torque digital servo with rigid M2 ball-joint linkages</li>
+                    <li><strong>Yaw Moment:</strong> ~4.0 N&middot;m calculated turning torque</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SPECIFICATIONS TABLE -->
+      <section class="section" id="specifications">
+        <h2 class="section-label">Specifications</h2>
+
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Value</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chassis Dimensions</td>
+                <td class="mono">850 &times; 520 &times; 260 mm</td>
+                <td>Autodesk Fusion 360 CAD model</td>
+              </tr>
+              <tr>
+                <td>Target All-Up Weight</td>
+                <td class="mono">4.20 kg</td>
+                <td>Includes chassis, batteries, motors, and electronics</td>
+              </tr>
+              <tr>
+                <td>Cushion Footprint</td>
+                <td class="mono">0.191 m&sup2;</td>
+                <td>Effective plenum area</td>
+              </tr>
+              <tr>
+                <td>Calculated Cushion Pressure</td>
+                <td class="mono">215.4 Pa</td>
+                <td>Equilibrium float at 20mm clearance</td>
+              </tr>
+              <tr>
+                <td>Lift Volumetric Flow</td>
+                <td class="mono">0.56 m&sup3;/s</td>
+                <td>Calculated at 18.9 m/s escape velocity</td>
+              </tr>
+              <tr>
+                <td>Steering Range</td>
+                <td class="mono">&plusmn;35&deg;</td>
+                <td>Twin-vane propwash deflection</td>
+              </tr>
+              <tr>
+                <td>Battery System</td>
+                <td class="mono">4S LiPo (14.8V)</td>
+                <td>4500 mAh capacity, 60C discharge rating</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BUILD LOGS / GALLERY -->
+      <section class="section" id="logs">
+        <div class="section-head-center">
+          <h2 class="section-label">Build Logs</h2>
+          <div class="filter-pills" id="logFilters" role="tablist" aria-label="Filter logs">
+            <button class="pill active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="pill" data-filter="2026-09" role="tab" aria-selected="false">Sep 2026</button>
+            <button class="pill" data-filter="2026-08" role="tab" aria-selected="false">Aug 2026</button>
+          </div>
+        </div>
+
+        <div class="log-grid" id="logGrid">
+          <!-- Rendered by js/main.js -->
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="section" id="team">
+        <h2 class="section-label">Team &bull; Subsystem Ownership</h2>
+
+        <div class="team-grid">
+          <article class="team-item">
+            <h3 class="team-name">Meir Levi</h3>
+            <span class="team-role">Lead Engineer</span>
+            <p class="team-desc">System integration, powertrain sizing, duct aerodynamics, and technical direction.</p>
+          </article>
+
+          <article class="team-item">
+            <h3 class="team-name">Ilyan Bozhanov</h3>
+            <span class="team-role">Project Engineer</span>
+            <p class="team-desc">CAD solid modeling, aerostatic calculations, steering linkage mechanics, and web documentation.</p>
+          </article>
+
+          <article class="team-item">
+            <h3 class="team-name">Andor Stipsits</h3>
+            <span class="team-role">Production Engineer</span>
+            <p class="team-desc">Chassis fabrication, composite layup, segmented skirt tailoring, and physical assembly.</p>
+          </article>
+
+          <article class="team-item">
+            <h3 class="team-name">Mariia Kozko</h3>
+            <span class="team-role">Test Engineer</span>
+            <p class="team-desc">Sensor telemetry, plenum pressure verification, hover height logging, and test protocols.</p>
+          </article>
+
+          <article class="team-item">
+            <h3 class="team-name">Kerem B&uuml;rke</h3>
+            <span class="team-role">Quality Engineer</span>
+            <p class="team-desc">Tolerance analysis, structural stress checks, hardware reliability, and component fit.</p>
+          </article>
+
+          <article class="team-item">
+            <h3 class="team-name">Elias Soukrati</h3>
+            <span class="team-role">Documentation &amp; PR</span>
+            <p class="team-desc">Technical writeups, milestone deliverables, project reporting, and BOM tracking.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- LIGHTBOX MODAL -->
+    <dialog class="lightbox" id="lightboxModal" aria-modal="true" aria-label="Image preview">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-content">
+        <header class="lightbox-top">
+          <div class="lightbox-titles">
+            <span class="lightbox-date mono" id="lightboxDate"></span>
+            <span class="lightbox-title" id="lightboxTitle"></span>
+          </div>
+          <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        </header>
+        <div class="lightbox-viewport">
+          <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <footer class="lightbox-bottom">
+          <p class="lightbox-desc" id="lightboxDesc"></p>
+          <div class="lightbox-nav">
+            <button class="nav-btn" id="lightboxPrev">&larr; Prev</button>
+            <span class="lightbox-counter mono" id="lightboxCounter">1 / 7</span>
+            <button class="nav-btn" id="lightboxNext">Next &rarr;</button>
+          </div>
+        </footer>
       </div>
-      <ul class="pillar-list">
-        <li class="pillar">
-          <div class="pillar-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3 2 8l10 5 10-5-10-5z"/>
-              <path d="M6 10.5V15a10 3 0 0 0 12 0v-4.5"/>
-              <path d="M12 13l0 8"/>
-            </svg>
-          </div>
-          <div class="pillar-text">
-            <h4>Fontys Mechanical Engineering</h4>
-            <p>Students at Fontys University of Applied Sciences. This project is part of the program: building real things, solving real problems.</p>
-          </div>
-        </li>
-        <li class="pillar">
-          <div class="pillar-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v18"/>
-              <path d="M5 6l14 12"/>
-              <path d="M19 6 5 18"/>
-            </svg>
-          </div>
-          <div class="pillar-text">
-            <h4>Engineering Process</h4>
-            <p>From CAD models and FEA simulations to CNC-cut parts and hands-on assembly, every step is documented on this site.</p>
-          </div>
-        </li>
-        <li class="pillar">
-          <div class="pillar-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l2.4 5.1 5.6.6-4.1 3.8 1 5.5-4.9-2.7-4.9 2.7 1-5.5L4 7.7l5.6-.6L12 2z"/>
-            </svg>
-          </div>
-          <div class="pillar-text">
-            <h4>G-Force</h4>
-            <p>Six engineers, one goal. Mechanical design, electrical systems, materials, testing, and project management.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+    </dialog>
 
-  <!-- GALLERY -->
-  <section class="section" id="gallery">
-    <div class="section-head">
-      <h2 class="section-title">Build progress</h2>
-      <p class="section-desc">Photos from the workshop: design, fabrication, and testing.</p>
-    </div>
-    <div class="filters" id="galleryFilters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="2026-09">September 2026</button>
-      <button class="filter-btn" data-filter="2026-08">August 2026</button>
-    </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- Populated by JS -->
-    </div>
-  </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-center">
+          <span class="footer-brand mono">G-FORCE</span>
+          <span class="footer-meta">Hovercraft Engineering Documentation</span>
+        </div>
+        <div class="footer-top-link">
+          <a class="site-link" href="#top">
+            <span class="link-text">Return to Top</span><span class="link-arrow">&uarr;</span>
+          </a>
+        </div>
+      </div>
+    </footer>
 
-  <!-- MEET US -->
-  <section class="section" id="meet">
-    <div class="section-head">
-      <h2 class="section-title">Meet the team</h2>
-      <p class="section-desc">Six engineers from Fontys turning a hovercraft idea into a working machine.</p>
-    </div>
-    <div class="team-grid">
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">ML</div>
-        <h3>Meir Levi</h3>
-        <p>Lead Engineer</p>
-      </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">IB</div>
-        <h3>Ilyan Bozhanov</h3>
-        <p>Project Engineer</p>
-      </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">AS</div>
-        <h3>Andor Stipsits</h3>
-        <p>Production Engineer</p>
-      </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">MK</div>
-        <h3>Mariia Kozko</h3>
-        <p>Test Engineer</p>
-      </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">KB</div>
-        <h3>Kerem B&uuml;rke</h3>
-        <p>Quality Engineer</p>
-      </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">ES</div>
-        <h3>Elias Soukrati</h3>
-        <p>Lead PR</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <img class="footer-logo-img" src="logo.svg" alt="G-Force logo">
-    <p class="footer-text">G-Force | Fontys Mechanical Engineering</p>
-    <p class="footer-text">Building a hovercraft, one day at a time.</p>
-    <ul class="footer-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#meet">Meet us</a></li>
-    </ul>
-  </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
