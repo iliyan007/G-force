@@ -1,181 +1,216 @@
-// === DATA ===
-// Add your gallery images here.
-// Put images in assets/images/ and reference them in the 'img' field.
-// If 'img' is empty, a seeded placeholder photo is used (replace with the real workshop photo).
+// ==========================================================================
+// G-FORCE — JAVASCRIPT LOGIC
+// Minimal vanilla JS for expandable drawers, log filtering, and lightbox.
+// ==========================================================================
 
 const galleryData = [
   {
+    id: 1,
     date: '2026-08-16',
     month: '2026-08',
-    title: 'G-Force logo concepts',
-    desc: 'Ink and marker explorations of the G-Force mark and wordmark.',
+    title: 'Logo Vector Concepts',
+    desc: 'Propeller mark and typography explorations for the G-Force identity.',
     img: 'images/gforce-logo-concepts.jpg'
   },
   {
+    id: 2,
     date: '2026-08-17',
     month: '2026-08',
-    title: 'Hull design sketches',
-    desc: 'Concept sketches of the hull profile and planing forms.',
+    title: 'Hull Profile & Deadrise Sketches',
+    desc: 'Hydrodynamic and aerodynamic draft profiles exploring planing deadrise.',
     img: 'images/hull-design-sketches.jpg'
   },
   {
+    id: 3,
     date: '2026-08-18',
     month: '2026-08',
-    title: 'Hull and propulsion sketches',
-    desc: 'Concept sheet for the hull form, throttle propeller, and motor layout.',
+    title: 'Integrated Powertrain Layout',
+    desc: 'Schematic for the lift plenum inlet and horizontal thrust duct.',
     img: 'images/hull-propulsion-sketches.jpg'
   },
   {
+    id: 4,
     date: '2026-08-18',
     month: '2026-08',
-    title: 'Throttle and servo sketch',
-    desc: 'Detail sketch of the throttle propeller and servo linkage for the control system.',
+    title: 'Throttle & Rudder Linkage',
+    desc: 'Detail sketch of the twin rudder deflection mechanism and servo linkage.',
     img: 'images/throttle-servo-sketch.jpg'
   },
   {
+    id: 5,
     date: '2026-09-01',
     month: '2026-09',
-    title: 'CAD in Fusion 360',
-    desc: 'Modelling the hull in Fusion 360 on the shop laptop.',
+    title: 'Parametric Hull in Fusion 360',
+    desc: 'Digital 3D CAD modeling of the deck, internal bulkheads, and cowlings.',
     img: 'images/fusion-cad-laptop.jpg'
   },
   {
+    id: 6,
     date: '2026-09-02',
     month: '2026-09',
-    title: 'Team working session',
-    desc: 'The team running through design and planning at a project meetup.',
+    title: 'Architecture Working Session',
+    desc: 'Team meeting reviewing assembly tolerances, mass budgets, and fabrication steps.',
     img: 'images/team-working-session.jpg'
   },
   {
+    id: 7,
     date: '2026-09-02',
     month: '2026-09',
-    title: 'Team at the event',
-    desc: 'G-Force at the Fontys engineering event, laptops out and ready to build.',
+    title: 'Project Inception & Planning',
+    desc: 'Workshop kickoff aligning on design constraints and fabrication milestones.',
     img: 'images/team-meetup.jpg'
   }
 ];
 
-const reduceMotion =
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let currentLightboxIndex = 0;
+let filteredItems = [...galleryData];
 
-// === RENDER GALLERY ===
-function renderGallery(filter = 'all') {
-  const grid = document.getElementById('galleryGrid');
-  const filtered = filter === 'all'
-    ? galleryData
-    : galleryData.filter(item => item.month === filter);
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="no-results">No gallery items for this period yet.</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map(item => `
-    <article class="gallery-item reveal">
-      <a class="gallery-item-image" href="${item.img}" target="_blank" rel="noopener" aria-label="View larger photo: ${item.title}">
-        <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.closest('.gallery-item-image').classList.add('img-missing')" />
-      </a>
-      <div class="gallery-item-info">
-        <div class="gallery-item-date">${formatDate(item.date)}</div>
-        <div class="gallery-item-title">${item.title}</div>
-        <div class="gallery-item-desc">${item.desc}</div>
-      </div>
-    </article>
-  `).join('');
-
-  observeRevealElements();
-}
-
-// === HELPERS ===
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('en-GB', {
-    weekday: 'short',
     day: 'numeric',
     month: 'short',
     year: 'numeric'
   });
 }
 
-// === SCROLL REVEAL ===
-function observeRevealElements() {
-  const els = document.querySelectorAll('.reveal:not(.visible)');
+// Render build logs
+function renderLogs(filter = 'all') {
+  const grid = document.getElementById('logGrid');
+  if (!grid) return;
 
-  if (reduceMotion) {
-    els.forEach(el => el.classList.add('visible'));
+  filteredItems = filter === 'all'
+    ? galleryData
+    : galleryData.filter(item => item.month === filter);
+
+  if (filteredItems.length === 0) {
+    grid.innerHTML = '<p class="mono" style="color: var(--muted); padding: 1rem 0;">No logs found for this period.</p>';
     return;
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+  grid.innerHTML = filteredItems.map((item, idx) => `
+    <article class="log-item" data-index="${idx}" tabindex="0" role="button" aria-label="View ${item.title}">
+      <div class="log-thumb">
+        <img src="${item.img}" alt="${item.title}" loading="lazy">
+      </div>
+      <div class="log-details">
+        <span class="log-date mono">${formatDate(item.date)}</span>
+        <h3 class="log-title">${item.title}</h3>
+        <p class="log-desc">${item.desc}</p>
+      </div>
+    </article>
+  `).join('');
+
+  grid.querySelectorAll('.log-item').forEach(el => {
+    el.addEventListener('click', () => {
+      openLightbox(parseInt(el.dataset.index, 10));
+    });
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(parseInt(el.dataset.index, 10));
       }
     });
-  }, { threshold: 0.1 });
-
-  els.forEach(el => observer.observe(el));
+  });
 }
 
-// === NAVIGATION ===
-function initNav() {
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
+// Subsystem Drawer toggles
+function initDrawers() {
+  const buttons = document.querySelectorAll('.toggle-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('aria-controls');
+      const drawer = document.getElementById(targetId);
+      if (!drawer) return;
 
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-
-  links.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      drawer.classList.toggle('open', !expanded);
     });
   });
-
-  // Active link detection via IntersectionObserver (no scroll listeners)
-  const navLinkBySection = {};
-  links.querySelectorAll('a[href^="#"]').forEach(a => {
-    navLinkBySection[a.getAttribute('href').slice(1)] = a;
-  });
-  const sections = Array.from(navLinkBySection.keys())
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const link = navLinkBySection[entry.target.id];
-      if (!link) return;
-      links.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-      link.classList.add('active');
-    });
-  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-
-  sections.forEach(section => observer.observe(section));
 }
 
-// === FILTERS ===
-function initFilters(containerId, renderFn) {
-  const container = document.getElementById(containerId);
+// Filter buttons
+function initFilters() {
+  const container = document.getElementById('logFilters');
   if (!container) return;
 
   container.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('filter-btn')) return;
-    container.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
-    renderFn(e.target.dataset.filter);
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+
+    container.querySelectorAll('.pill').forEach(p => {
+      p.classList.remove('active');
+      p.setAttribute('aria-selected', 'false');
+    });
+
+    pill.classList.add('active');
+    pill.setAttribute('aria-selected', 'true');
+    renderLogs(pill.dataset.filter);
   });
 }
 
-// === INIT ===
+// Lightbox logic
+const modal = document.getElementById('lightboxModal');
+const modalBackdrop = document.getElementById('lightboxBackdrop');
+const modalClose = document.getElementById('lightboxClose');
+const modalImg = document.getElementById('lightboxImg');
+const modalTitle = document.getElementById('lightboxTitle');
+const modalDate = document.getElementById('lightboxDate');
+const modalDesc = document.getElementById('lightboxDesc');
+const modalCounter = document.getElementById('lightboxCounter');
+const modalPrev = document.getElementById('lightboxPrev');
+const modalNext = document.getElementById('lightboxNext');
+
+function openLightbox(index) {
+  if (!modal || index < 0 || index >= filteredItems.length) return;
+  currentLightboxIndex = index;
+  updateLightbox();
+  modal.showModal();
+}
+
+function updateLightbox() {
+  const item = filteredItems[currentLightboxIndex];
+  if (!item) return;
+
+  modalImg.src = item.img;
+  modalImg.alt = item.title;
+  modalTitle.textContent = item.title;
+  modalDate.textContent = formatDate(item.date);
+  modalDesc.textContent = item.desc;
+  modalCounter.textContent = `${currentLightboxIndex + 1} / ${filteredItems.length}`;
+}
+
+function closeLightbox() {
+  if (modal && modal.open) modal.close();
+}
+
+function prevLightbox() {
+  currentLightboxIndex = (currentLightboxIndex > 0) ? currentLightboxIndex - 1 : filteredItems.length - 1;
+  updateLightbox();
+}
+
+function nextLightbox() {
+  currentLightboxIndex = (currentLightboxIndex < filteredItems.length - 1) ? currentLightboxIndex + 1 : 0;
+  updateLightbox();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  renderGallery();
-  initNav();
-  initFilters('galleryFilters', renderGallery);
-  observeRevealElements();
+  renderLogs();
+  initDrawers();
+  initFilters();
+
+  if (modal) {
+    if (modalClose) modalClose.addEventListener('click', closeLightbox);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeLightbox);
+    if (modalPrev) modalPrev.addEventListener('click', prevLightbox);
+    if (modalNext) modalNext.addEventListener('click', nextLightbox);
+
+    window.addEventListener('keydown', (e) => {
+      if (!modal.open) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+    });
+  }
 });
