@@ -136,7 +136,7 @@ const reduceMotion =
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // === RENDER GALLERY ===
-function renderGallery(filter = 'day1') {
+function renderGallery(filter = 'day2') {
   const grid = document.getElementById('galleryGrid');
   const filtered = galleryData.filter(item => item.day === filter);
 
