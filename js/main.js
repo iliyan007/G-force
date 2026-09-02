@@ -217,7 +217,7 @@ function initNav() {
   links.querySelectorAll('a[href^="#"]').forEach(a => {
     navLinkBySection[a.getAttribute('href').slice(1)] = a;
   });
-  const sections = Array.from(navLinkBySection.keys())
+  const sections = Object.keys(navLinkBySection)
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -239,11 +239,13 @@ function initFilters(containerId, renderFn) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  container.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('filter-btn')) return;
-    container.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
-    renderFn(e.target.dataset.filter);
+  const buttons = container.querySelectorAll('.filter-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFn(btn.dataset.filter);
+    });
   });
 }
 
