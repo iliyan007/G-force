@@ -7,6 +7,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'G-Force logo concepts',
     desc: 'Ink and marker explorations of the G-Force mark and wordmark.',
     img: 'images/gforce-logo-concepts.jpg'
@@ -14,6 +15,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'Hull design sketches',
     desc: 'Concept sketches of the hull profile and planing forms.',
     img: 'images/hull-design-sketches.jpg'
@@ -21,6 +23,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'Hull and propulsion sketches',
     desc: 'Concept sheet for the hull form, throttle propeller, and motor layout.',
     img: 'images/hull-propulsion-sketches.jpg'
@@ -28,6 +31,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'Throttle and servo sketch',
     desc: 'Detail sketch of the throttle propeller and servo linkage for the control system.',
     img: 'images/throttle-servo-sketch.jpg'
@@ -35,6 +39,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'CAD in Fusion 360',
     desc: 'Modelling the hull in Fusion 360 on the shop laptop.',
     img: 'images/fusion-cad-laptop.jpg'
@@ -42,6 +47,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'Team working session',
     desc: 'The team running through design and planning at a project meetup.',
     img: 'images/team-working-session.jpg'
@@ -49,6 +55,7 @@ const galleryData = [
   {
     date: '2026-09-01',
     month: '2026-09',
+    day: 'day1',
     title: 'Team at the event',
     desc: 'G-Force at the Fontys engineering event, laptops out and ready to build.',
     img: 'images/team-meetup.jpg'
@@ -59,14 +66,12 @@ const reduceMotion =
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // === RENDER GALLERY ===
-function renderGallery(filter = 'all') {
+function renderGallery(filter = 'day1') {
   const grid = document.getElementById('galleryGrid');
-  const filtered = filter === 'all'
-    ? galleryData
-    : galleryData.filter(item => item.month === filter);
+  const filtered = galleryData.filter(item => item.day === filter);
 
   if (filtered.length === 0) {
-    grid.innerHTML = '<div class="no-results">No gallery items for this period yet.</div>';
+    grid.innerHTML = '<div class="no-results">No photos for this day yet.</div>';
     return;
   }
 
