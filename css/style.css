@@ -934,7 +934,7 @@ img {
     align-items: center;
   }
   .hero {
-    padding: calc(60px + clamp(20px, 4vw, 32px)) 20px clamp(40px, 8vw, 64px);
+    padding: calc(30px + clamp(12px, 4vw, 24px)) 20px clamp(40px, 8vw, 64px);
   }
   .stat-band {
     grid-template-columns: 1fr;
@@ -961,7 +961,7 @@ img {
     font-size: 16px;
   }
   .hero-logo {
-    width: 120px;
+    width: min(84vw, 360px);
   }
   .hero-title {
     font-size: clamp(40px, 14vw, 56px);
