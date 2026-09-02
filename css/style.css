@@ -39,6 +39,7 @@
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Chakra Petch', 'Space Grotesk', sans-serif;
 
   --dur: 0.32s;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -119,9 +120,9 @@ img {
 }
 
 .nav-logo-text {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1.5px;
   background: linear-gradient(112deg, #6d28d9, #8b5cf6);
   -webkit-background-clip: text;
@@ -238,10 +239,11 @@ img {
 }
 
 .hero-title {
+  font-family: var(--font-display);
   font-size: clamp(46px, 9vw, 84px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 0.98;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   background: linear-gradient(112deg, #6d28d9 0%, #7c3aed 48%, #a855f7 100%);
   -webkit-background-clip: text;
   background-clip: text;
