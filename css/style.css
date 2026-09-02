@@ -182,7 +182,7 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(68px + clamp(20px, 3vw, 44px)) 24px clamp(48px, 7vw, 88px);
+  padding: calc(40px + clamp(12px, 2vw, 28px)) 24px clamp(48px, 7vw, 88px);
   position: relative;
   overflow: hidden;
   background:
@@ -214,7 +214,7 @@ img {
 .hero-logo {
   width: clamp(280px, 40vw, 520px);
   height: auto;
-  margin: 0 auto clamp(18px, 2.4vw, 26px);
+  margin: 0 auto clamp(8px, 1.4vw, 14px);
 }
 
 .hero-tag {
