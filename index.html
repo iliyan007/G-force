@@ -128,7 +128,6 @@
     <div class="filters" id="galleryFilters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="2026-09">September 2026</button>
-      <button class="filter-btn" data-filter="2026-08">August 2026</button>
     </div>
     <div class="gallery-grid" id="galleryGrid">
       <!-- Populated by JS -->
@@ -142,35 +141,47 @@
       <p class="section-desc">Six engineers from Fontys turning a hovercraft idea into a working machine.</p>
     </div>
     <div class="team-grid">
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">ML</div>
-        <h3>Meir Levi</h3>
-        <p>Lead Engineer</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-ilyan" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Ilyan Bozhanov</h3>
+          <p>Project Engineer</p>
+        </div>
       </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">IB</div>
-        <h3>Ilyan Bozhanov</h3>
-        <p>Project Engineer</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-meir" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Meir Levi</h3>
+          <p>Lead Engineer</p>
+        </div>
       </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">AS</div>
-        <h3>Andor Stipsits</h3>
-        <p>Production Engineer</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-andor" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Andor Stipsits</h3>
+          <p>Production Engineer</p>
+        </div>
       </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">MK</div>
-        <h3>Mariia Kozko</h3>
-        <p>Test Engineer</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-mariia" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Mariia Kozko</h3>
+          <p>Test Engineer</p>
+        </div>
       </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">KB</div>
-        <h3>Kerem B&uuml;rke</h3>
-        <p>Quality Engineer</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-kerem" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Kerem B&uuml;rke</h3>
+          <p>Quality Engineer</p>
+        </div>
       </article>
-      <article class="member">
-        <div class="member-avatar" aria-hidden="true">ES</div>
-        <h3>Elias Soukrati</h3>
-        <p>Lead PR</p>
+      <article class="member member--photo">
+        <div class="member-photo member-photo-elias" aria-hidden="true"></div>
+        <div class="member-body">
+          <h3>Elias Soukrati</h3>
+          <p>Lead PR</p>
+        </div>
       </article>
     </div>
   </section>
@@ -187,6 +198,17 @@
       <li><a href="#meet">Meet us</a></li>
     </ul>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="" />
+      <figcaption class="lightbox-caption" id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

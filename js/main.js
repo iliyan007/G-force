@@ -5,29 +5,29 @@
 
 const galleryData = [
   {
-    date: '2026-08-16',
-    month: '2026-08',
+    date: '2026-09-01',
+    month: '2026-09',
     title: 'G-Force logo concepts',
     desc: 'Ink and marker explorations of the G-Force mark and wordmark.',
     img: 'images/gforce-logo-concepts.jpg'
   },
   {
-    date: '2026-08-17',
-    month: '2026-08',
+    date: '2026-09-01',
+    month: '2026-09',
     title: 'Hull design sketches',
     desc: 'Concept sketches of the hull profile and planing forms.',
     img: 'images/hull-design-sketches.jpg'
   },
   {
-    date: '2026-08-18',
-    month: '2026-08',
+    date: '2026-09-01',
+    month: '2026-09',
     title: 'Hull and propulsion sketches',
     desc: 'Concept sheet for the hull form, throttle propeller, and motor layout.',
     img: 'images/hull-propulsion-sketches.jpg'
   },
   {
-    date: '2026-08-18',
-    month: '2026-08',
+    date: '2026-09-01',
+    month: '2026-09',
     title: 'Throttle and servo sketch',
     desc: 'Detail sketch of the throttle propeller and servo linkage for the control system.',
     img: 'images/throttle-servo-sketch.jpg'
@@ -40,14 +40,14 @@ const galleryData = [
     img: 'images/fusion-cad-laptop.jpg'
   },
   {
-    date: '2026-09-02',
+    date: '2026-09-01',
     month: '2026-09',
     title: 'Team working session',
     desc: 'The team running through design and planning at a project meetup.',
     img: 'images/team-working-session.jpg'
   },
   {
-    date: '2026-09-02',
+    date: '2026-09-01',
     month: '2026-09',
     title: 'Team at the event',
     desc: 'G-Force at the Fontys engineering event, laptops out and ready to build.',
@@ -72,7 +72,7 @@ function renderGallery(filter = 'all') {
 
   grid.innerHTML = filtered.map(item => `
     <article class="gallery-item reveal">
-      <a class="gallery-item-image" href="${item.img}" target="_blank" rel="noopener" aria-label="View larger photo: ${item.title}">
+      <a class="gallery-item-image" href="${item.img}" data-full="${item.img}" data-title="${item.title}" data-desc="${item.desc}" aria-label="View larger photo: ${item.title}">
         <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.closest('.gallery-item-image').classList.add('img-missing')" />
       </a>
       <div class="gallery-item-info">
@@ -90,9 +90,9 @@ function renderGallery(filter = 'all') {
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('en-GB', {
-    weekday: 'short',
+    weekday: 'long',
     day: 'numeric',
-    month: 'short',
+    month: 'long',
     year: 'numeric'
   });
 }
@@ -172,10 +172,72 @@ function initFilters(containerId, renderFn) {
   });
 }
 
+// === LIGHTBOX ===
+function openLightbox(src, title, desc) {
+  const box = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImage');
+  const cap = document.getElementById('lightboxCaption');
+  img.src = src;
+  img.alt = title;
+  cap.innerHTML = `<strong>${title}</strong>` + (desc ? ` <span>${desc}</span>` : '');
+  box.classList.add('open');
+  box.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lightboxClose').focus();
+}
+
+function closeLightbox() {
+  const box = document.getElementById('lightbox');
+  box.classList.remove('open');
+  box.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  const img = document.getElementById('lightboxImage');
+  img.removeAttribute('src');
+  img.removeAttribute('alt');
+}
+
+function initLightbox() {
+  const grid = document.getElementById('galleryGrid');
+  const box = document.getElementById('lightbox');
+  if (!grid || !box) return;
+
+  let lastFocused = null;
+
+  grid.addEventListener('click', (e) => {
+    const link = e.target.closest('.gallery-item-image');
+    if (!link) return;
+    e.preventDefault();
+    lastFocused = document.activeElement;
+    openLightbox(link.dataset.full, link.dataset.title, link.dataset.desc);
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+    lastFocused = null;
+  });
+
+  box.addEventListener('click', (e) => {
+    if (e.target !== box) return;
+    closeLightbox();
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+    lastFocused = null;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !box.classList.contains('open')) return;
+    closeLightbox();
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+    lastFocused = null;
+  });
+}
+
 // === INIT ===
 document.addEventListener('DOMContentLoaded', () => {
   renderGallery();
   initNav();
   initFilters('galleryFilters', renderGallery);
+  initLightbox();
   observeRevealElements();
 });
