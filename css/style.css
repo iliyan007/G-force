@@ -218,9 +218,10 @@ img {
 }
 
 .hero-logo {
+  display: block;
   width: clamp(280px, 40vw, 520px);
   height: auto;
-  margin: 0 auto clamp(-2px, 0, 0);
+  margin: 0 auto 0;
 }
 
 .hero-tag {
@@ -244,6 +245,7 @@ img {
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: 0.01em;
+  margin: 0;
   background: linear-gradient(112deg, #6d28d9 0%, #7c3aed 48%, #a855f7 100%);
   -webkit-background-clip: text;
   background-clip: text;
