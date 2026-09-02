@@ -129,6 +129,62 @@ const galleryData = [
     title: 'Finished plate piece',
     desc: 'The finished plate piece, cut and shaped to the template.',
     img: 'images/finished-plate-piece.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Test plan',
+    desc: 'Testing goals for stability, speed, and identifying loose parts.',
+    img: 'images/test-plan-1.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Test plan: turning',
+    desc: 'Goal of controlling turns; testing flap count and length.',
+    img: 'images/test-plan-2.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Assembling the deck',
+    desc: 'Fitting the deck and plate components together at the bench.',
+    img: 'images/progress-assembling-part.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Bonding the plate',
+    desc: 'Aligning the plate and motor mount during assembly.',
+    img: 'images/progress-assembling-piece.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Steering mechanism sketch',
+    desc: 'Pencil sketch of the steering mechanism with testing notes.',
+    img: 'images/steering-mechanism-sketch.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Plate cutout',
+    desc: 'The deck plate cutout before bonding.',
+    img: 'images/progress-plate-cutout.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Bonding with hot glue',
+    desc: 'Applying hot glue to bond the plate section in place.',
+    img: 'images/progress-gluing.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Hovercraft design',
+    desc: 'Nearly final hovercraft design with prop and power system fitted.',
+    img: 'images/final-design.png'
   }
 ];
 
