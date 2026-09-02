@@ -366,11 +366,32 @@ function initLightbox() {
   });
 }
 
+// === TIMELINE ===
+function initTimeline() {
+  const tl = document.getElementById('timeline');
+  if (!tl) return;
+
+  tl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tl-link');
+    if (!btn) return;
+    const day = btn.dataset.day;
+    if (day) renderGallery(day);
+    const target = document.querySelector(btn.dataset.target || '#gallery');
+    const filterBtn = document.querySelector('.filter-btn[data-filter="' + day + '"]');
+    if (filterBtn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      filterBtn.classList.add('active');
+    }
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 // === INIT ===
 document.addEventListener('DOMContentLoaded', () => {
   renderGallery();
   initNav();
   initFilters('galleryFilters', renderGallery);
   initLightbox();
+  initTimeline();
   observeRevealElements();
 });
