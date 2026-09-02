@@ -390,6 +390,65 @@ img {
 }
 
 /* ============================================================
+   TESTING  (test plan goals)
+   ============================================================ */
+.test-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.test-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.test-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  width: 42px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.test-card h3 {
+  font-size: clamp(20px, 2.2vw, 24px);
+  margin: 0 0 8px;
+}
+
+.test-goal {
+  color: var(--text);
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+.test-how {
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.test-how strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* ============================================================
    ABOUT  (asymmetric: one lead card + pillar list)
    ============================================================ */
 .about-grid {
@@ -945,6 +1004,9 @@ img {
     display: none;
   }
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .test-grid {
     grid-template-columns: 1fr;
   }
   .section {
