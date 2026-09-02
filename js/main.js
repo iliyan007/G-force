@@ -59,6 +59,76 @@ const galleryData = [
     title: 'Team at the event',
     desc: 'G-Force at the Fontys engineering event, laptops out and ready to build.',
     img: 'images/team-meetup.jpg'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Plate technical drawing',
+    desc: 'Dimensioned technical drawing of the hovercraft plate.',
+    img: 'images/plate-technical-drawing.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'CAD assembly drawing',
+    desc: 'Isometric CAD assembly of the motor and plate components.',
+    img: 'images/cad-assembly-drawing.jpg'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Workshop setup',
+    desc: 'Setting up the cutting and assembly bench at the workshop.',
+    img: 'images/workshop-team-setup.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Fusion 3D plate model',
+    desc: 'Modelling the chassis plates in Autodesk Fusion 360.',
+    img: 'images/fusion-plate-model.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Cutting the material',
+    desc: 'Cutting the composite plate material to the deck profile.',
+    img: 'images/material-cutting.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Why technical drawings?',
+    desc: 'A presentation on the value of accurate technical drawings.',
+    img: 'images/technical-drawings-presentation.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Cutting progress',
+    desc: 'Trimming the plate material against the template profile.',
+    img: 'images/material-cutting-overhead.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Heat forming the plate',
+    desc: 'Shaping the plate section over the deck template.',
+    img: 'images/heat-forming-white-shirt.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Shaping the foam core',
+    desc: 'Using the hot-wire tool to cut the plate core.',
+    img: 'images/heat-forming-blue-jeans.png'
+  },
+  {
+    date: '2026-09-02',
+    day: 'day2',
+    title: 'Finished plate piece',
+    desc: 'The finished plate piece, cut and shaped to the template.',
+    img: 'images/finished-plate-piece.png'
   }
 ];
 
