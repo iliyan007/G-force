@@ -220,6 +220,13 @@ const galleryData = [
     title: 'Electronics check',
     desc: 'Close-up on the servo and control wiring.',
     img: 'images/day3-6.png'
+  },
+  {
+    date: '2026-09-03',
+    day: 'day3',
+    title: 'Final assembly',
+    desc: 'The hovercraft fully assembled on its deck, flag up and ready to roll.',
+    img: 'images/day3-7.png'
   }
 ];
 
