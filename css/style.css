@@ -344,6 +344,79 @@ img {
   transform: translateY(0) scale(0.98);
 }
 
+.poster-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.poster-modal.open {
+  display: flex;
+}
+
+.poster-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 7, 24, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.poster-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: min(92vw, 860px);
+  width: 100%;
+  max-height: 90vh;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+}
+
+.poster-image {
+  display: block;
+  width: 100%;
+  max-height: calc(90vh - 32px);
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.poster-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.poster-close:hover {
+  background: var(--accent-strong);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .poster-dialog {
+    max-width: 96vw;
+    max-height: 92vh;
+  }
+}
+
 /* ============================================================
    STAT BAND
    ============================================================ */
@@ -661,6 +734,9 @@ img {
   padding: clamp(30px, 4vw, 46px);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background-image:
     linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
@@ -718,9 +794,37 @@ img {
 }
 
 .about-lead p {
-  color: var(--text-2);
+  color: var(--text);
   font-size: 15px;
+  font-weight: 500;
   max-width: 46ch;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.poster-btn {
+  margin-top: auto;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--accent-text);
+  background: var(--accent);
+  border: none;
+  padding: 13px 26px;
+  min-height: 46px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.poster-btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -14px var(--accent);
+}
+
+.poster-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .pillar-list {

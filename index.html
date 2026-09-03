@@ -85,6 +85,7 @@
         </div>
         <h3>The Hovercraft</h3>
         <p>A battery-powered hovercraft built on a hoverboard platform. It rides on a skirted air cushion and is driven by an electric propeller. We engineer every part ourselves: the hull, the skirt system, propulsion, steering and controls. Six engineers, one goal.</p>
+        <button class="poster-btn" data-poster="images/technical-poster.png" type="button">Check technical poster</button>
       </div>
       <ul class="pillar-list">
         <li class="pillar">
@@ -300,6 +301,17 @@
       <img class="lightbox-image" id="lightboxImage" src="" alt="" />
       <figcaption class="lightbox-caption" id="lightboxCaption"></figcaption>
     </figure>
+  </div>
+
+  <!-- TECHNICAL POSTER MODAL -->
+  <div class="poster-modal" id="posterModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Technical poster">
+    <div class="poster-backdrop" data-close></div>
+    <div class="poster-dialog">
+      <button class="poster-close" data-close aria-label="Close technical poster">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <img class="poster-image" id="posterImage" src="images/technical-poster.png" alt="G-Force technical poster">
+    </div>
   </div>
 
   <script src="js/main.js"></script>

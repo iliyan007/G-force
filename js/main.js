@@ -210,13 +210,6 @@ const galleryData = [
   {
     date: '2026-09-03',
     day: 'day3',
-    title: 'Top-down inspection',
-    desc: 'A top-down look at the assembled hovercraft deck.',
-    img: 'images/day3-4.png'
-  },
-  {
-    date: '2026-09-03',
-    day: 'day3',
     title: 'Test run on the floor',
     desc: 'Running the hovercraft through the test cones.',
     img: 'images/day3-5.png'
@@ -227,13 +220,6 @@ const galleryData = [
     title: 'Electronics check',
     desc: 'Close-up on the servo and control wiring.',
     img: 'images/day3-6.png'
-  },
-  {
-    date: '2026-09-03',
-    day: 'day3',
-    title: 'Final assembly',
-    desc: 'The hovercraft fully assembled on its deck, flag up and ready to roll.',
-    img: 'images/day3-7.png'
   }
 ];
 
@@ -435,6 +421,42 @@ function initTimeline() {
   });
 }
 
+// === TECHNICAL POSTER (modal) ===
+function initPoster() {
+  const btn = document.querySelector('.poster-btn');
+  const modal = document.getElementById('posterModal');
+  const img = document.getElementById('posterImage');
+  if (!btn || !modal || !img) return;
+
+  let lastFocused = null;
+  const open = () => {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const first = modal.querySelector('.poster-close');
+    if (first) first.focus();
+  };
+  const close = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+    lastFocused = null;
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    lastFocused = document.activeElement;
+    open();
+  });
+
+  modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+}
+
 // === INIT ===
 document.addEventListener('DOMContentLoaded', () => {
   renderGallery();
@@ -442,5 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters('galleryFilters', renderGallery);
   initLightbox();
   initTimeline();
+  initPoster();
   observeRevealElements();
 });
