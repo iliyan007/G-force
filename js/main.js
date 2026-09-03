@@ -206,6 +206,34 @@ const galleryData = [
     title: 'Ready for a test run',
     desc: 'The hovercraft standing on its skirt, ready for the first test run.',
     img: 'images/day3-1.png'
+  },
+  {
+    date: '2026-09-04',
+    day: 'day4',
+    title: 'Final assembly',
+    desc: 'A last assembly pass with hot glue before the run.',
+    img: 'images/day4-1.png'
+  },
+  {
+    date: '2026-09-04',
+    day: 'day4',
+    title: 'Electronics check',
+    desc: 'Close-up on the servo and control wiring.',
+    img: 'images/day4-2.png'
+  },
+  {
+    date: '2026-09-04',
+    day: 'day4',
+    title: 'Test run on the floor',
+    desc: 'Running the hovercraft through the test cones.',
+    img: 'images/day4-3.png'
+  },
+  {
+    date: '2026-09-04',
+    day: 'day4',
+    title: 'On the course',
+    desc: 'The hovercraft negotiating the cone course during the test.',
+    img: 'images/day4-4.png'
   }
 ];
 
