@@ -378,6 +378,17 @@ img {
   box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
 }
 
+.poster-zoom {
+  overflow: hidden;
+  max-height: calc(90vh - 32px);
+  border-radius: var(--radius-md);
+  cursor: zoom-in;
+}
+
+.poster-zoom.dragging {
+  cursor: grabbing;
+}
+
 .poster-image {
   display: block;
   width: 100%;

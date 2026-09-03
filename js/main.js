@@ -428,7 +428,7 @@ function initTimeline() {
   });
 }
 
-// === TECHNICAL POSTER (modal) ===
+// === TECHNICAL POSTER (modal + zoom) ===
 function initPoster() {
   const btn = document.querySelector('.poster-btn');
   const modal = document.getElementById('posterModal');
@@ -436,7 +436,21 @@ function initPoster() {
   if (!btn || !modal || !img) return;
 
   let lastFocused = null;
+
+  let scale = 1, tx = 0, ty = 0, panning = false, sx = 0, sy = 0, stx = 0, sty = 0;
+  const zoomBox = modal.querySelector('.poster-zoom');
+  const min = 1, max = 8;
+  const applyTransform = () => {
+    img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  };
+  const resetZoom = () => {
+    scale = 1; tx = 0; ty = 0;
+    if (zoomBox) zoomBox.classList.remove('dragging');
+    applyTransform();
+  };
+
   const open = () => {
+    resetZoom();
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -462,6 +476,39 @@ function initPoster() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) close();
   });
+
+  // --- zoom with mouse wheel ---
+  img.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    const next = Math.min(max, Math.max(min, scale * factor));
+    scale = next;
+    if (scale === 1) { tx = 0; ty = 0; }
+    applyTransform();
+  }, { passive: false });
+
+  // --- pan with click-drag ---
+  img.addEventListener('pointerdown', (e) => {
+    panning = true; sx = e.clientX; sy = e.clientY; stx = tx; sty = ty;
+    if (zoomBox) zoomBox.classList.add('dragging');
+    if (img.setPointerCapture) img.setPointerCapture(e.pointerId);
+  });
+  img.addEventListener('pointermove', (e) => {
+    if (!panning) return;
+    tx = stx + (e.clientX - sx);
+    ty = sty + (e.clientY - sy);
+    applyTransform();
+  });
+  const stopPan = () => {
+    panning = false;
+    if (zoomBox) zoomBox.classList.remove('dragging');
+  };
+  img.addEventListener('pointerup', stopPan);
+  img.addEventListener('pointercancel', stopPan);
+  img.addEventListener('pointerleave', stopPan);
+
+  // --- double-click to reset ---
+  img.addEventListener('dblclick', resetZoom);
 }
 
 // === INIT ===
