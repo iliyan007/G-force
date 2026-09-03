@@ -208,32 +208,25 @@ const galleryData = [
     img: 'images/day3-1.png'
   },
   {
-    date: '2026-09-04',
-    day: 'day4',
+    date: '2026-09-03',
+    day: 'day3',
     title: 'Final assembly',
     desc: 'A last assembly pass with hot glue before the run.',
-    img: 'images/day4-1.png'
+    img: 'images/day3-4.png'
   },
   {
-    date: '2026-09-04',
-    day: 'day4',
+    date: '2026-09-03',
+    day: 'day3',
     title: 'Electronics check',
     desc: 'Close-up on the servo and control wiring.',
-    img: 'images/day4-2.png'
+    img: 'images/day3-5.png'
   },
   {
-    date: '2026-09-04',
-    day: 'day4',
+    date: '2026-09-03',
+    day: 'day3',
     title: 'Test run on the floor',
     desc: 'Running the hovercraft through the test cones.',
-    img: 'images/day4-3.png'
-  },
-  {
-    date: '2026-09-04',
-    day: 'day4',
-    title: 'On the course',
-    desc: 'The hovercraft negotiating the cone course during the test.',
-    img: 'images/day4-4.png'
+    img: 'images/day3-6.png'
   }
 ];
 
