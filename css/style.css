@@ -226,17 +226,6 @@ img {
   box-shadow: 0 22px 54px -26px rgba(76, 29, 149, 0.55);
 }
 
-.hero-photo .hero-logo {
-  position: absolute;
-  top: clamp(12px, 2.6vw, 34px);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  width: clamp(92px, 15vw, 176px);
-  height: auto;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
-}
-
 .hero-wordmark {
   position: relative;
   z-index: 2;
@@ -1218,9 +1207,6 @@ img {
 @media (max-width: 480px) {
   .nav-logo-text {
     font-size: 16px;
-  }
-  .hero-logo {
-    width: clamp(80px, 22vw, 120px);
   }
   .hero-title {
     font-size: clamp(40px, 14vw, 56px);
