@@ -672,7 +672,7 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.62) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.76) 100%),
     url('../images/day3-1.png') center 38% / cover no-repeat;
   border-radius: var(--radius-lg);
   z-index: 0;
