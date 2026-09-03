@@ -211,38 +211,40 @@ img {
   pointer-events: none;
 }
 
-.hero-logo {
-  display: block;
-  width: clamp(78px, 13vw, 150px);
-  height: auto;
-  margin: 0 auto clamp(4px, 1vw, 10px);
-}
-
 .hero-photo {
   position: relative;
-  z-index: 2;
-  width: min(86vw, 700px);
-  margin: clamp(-44px, -6vw, -26px) auto 0;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0, 0, 0, 0.55) 82%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0, 0, 0, 0.55) 82%, transparent 100%);
+  z-index: 1;
+  width: min(94vw, 880px);
+  margin: clamp(14px, 2vw, 26px) auto 0;
 }
 
-.hero-photo img {
+.hero-photo img.hero-team {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 18px;
-  box-shadow: 0 20px 52px -26px rgba(76, 29, 149, 0.55);
+  box-shadow: 0 22px 54px -26px rgba(76, 29, 149, 0.55);
+}
+
+.hero-photo .hero-logo {
+  position: absolute;
+  top: clamp(12px, 2.6vw, 34px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: clamp(92px, 15vw, 176px);
+  height: auto;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
 }
 
 .hero-wordmark {
   position: relative;
-  z-index: 1;
-  margin: 0 auto clamp(6px, 1.4vw, 16px);
+  z-index: 2;
+  margin: 0 auto 0;
   font-family: var(--font-display);
-  font-size: clamp(52px, 11vw, 128px);
+  font-size: clamp(64px, 13vw, 156px);
   font-weight: 700;
-  line-height: 0.98;
+  line-height: 0.94;
   letter-spacing: 0.01em;
   white-space: nowrap;
   background: linear-gradient(112deg, #6d28d9 0%, #7c3aed 48%, #a855f7 100%);
@@ -250,7 +252,7 @@ img {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 8px 26px rgba(124, 58, 237, 0.28));
+  filter: drop-shadow(0 10px 30px rgba(124, 58, 237, 0.3));
 }
 
 .hero-wordmark span {
@@ -1184,11 +1186,11 @@ img {
     padding: calc(70px + clamp(8px, 3vw, 20px)) 20px clamp(40px, 8vw, 64px);
   }
   .hero-photo {
-    width: min(92vw, 540px);
-    margin-top: clamp(-30px, -7vw, -18px);
+    width: min(94vw, 560px);
+    margin-top: clamp(10px, 2vw, 16px);
   }
   .hero-wordmark {
-    font-size: clamp(46px, 13vw, 66px);
+    font-size: clamp(56px, 16vw, 84px);
   }
   .stat-band {
     grid-template-columns: 1fr;
@@ -1218,7 +1220,7 @@ img {
     font-size: 16px;
   }
   .hero-logo {
-    width: clamp(64px, 18vw, 88px);
+    width: clamp(80px, 22vw, 120px);
   }
   .hero-title {
     font-size: clamp(40px, 14vw, 56px);
