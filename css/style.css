@@ -519,7 +519,7 @@ img {
 .tl-items {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(20px, 3vw, 28px);
 }
 
@@ -667,11 +667,22 @@ img {
   background-size: 30px 30px;
 }
 
+.about-lead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.86) 100%),
+    url('../images/day3-1.png') center 38% / cover no-repeat;
+  border-radius: var(--radius-lg);
+  z-index: 0;
+}
+
 .about-lead::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(120% 90% at 100% 0%, var(--accent-soft) 0%, transparent 55%);
+  background: radial-gradient(120% 90% at 100% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 55%);
   pointer-events: none;
 }
 

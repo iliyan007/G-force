@@ -185,6 +185,27 @@ const galleryData = [
     title: 'Hovercraft design',
     desc: 'Nearly final hovercraft design with prop and power system fitted.',
     img: 'images/final-design.png'
+  },
+  {
+    date: '2026-09-03',
+    day: 'day3',
+    title: 'Assembly',
+    desc: 'Fitting the deck, suspension and steering together on the bench.',
+    img: 'images/day3-2.png'
+  },
+  {
+    date: '2026-09-03',
+    day: 'day3',
+    title: 'Steering & wiring',
+    desc: 'Working on the steering mechanism and the electrical system.',
+    img: 'images/day3-3.png'
+  },
+  {
+    date: '2026-09-03',
+    day: 'day3',
+    title: 'Ready for a test run',
+    desc: 'The hovercraft standing on its skirt, ready for the first test run.',
+    img: 'images/day3-1.png'
   }
 ];
 
