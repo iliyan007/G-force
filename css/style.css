@@ -210,6 +210,35 @@ img {
   pointer-events: none;
 }
 
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('../images/team-hero.png') center 30% / cover no-repeat;
+  filter: blur(6px);
+  transform: scale(1.05);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.9) 56%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-position: center 22%;
+    filter: blur(9px);
+  }
+  .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.92) 55%, rgba(255, 255, 255, 0.84) 100%);
+  }
+}
+
 .hero-inner {
   position: relative;
   z-index: 1;
