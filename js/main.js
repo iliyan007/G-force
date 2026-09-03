@@ -226,7 +226,7 @@ const galleryData = [
     day: 'day3',
     title: 'Final assembly',
     desc: 'The hovercraft fully assembled on its deck, flag up and ready to roll.',
-    img: 'images/day3-7.png'
+    img: 'images/day3-7.jpg'
   }
 ];
 
