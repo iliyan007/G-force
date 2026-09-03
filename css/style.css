@@ -221,7 +221,15 @@ img {
 
 @media (max-width: 768px) {
   .hero-bg {
-    background-position: center 26%;
+    background: url('../images/team-hero.png') center top / 100% auto no-repeat;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.55) 48%, transparent 68%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.55) 48%, transparent 68%);
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-inner {
+    margin-bottom: clamp(60px, 14vh, 170px);
   }
 }
 
