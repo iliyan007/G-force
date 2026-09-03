@@ -185,8 +185,9 @@ img {
 .hero {
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   text-align: center;
   padding: calc(10px + clamp(4px, 0.8vw, 10px)) 24px clamp(48px, 7vw, 88px);
   position: relative;
@@ -210,41 +211,58 @@ img {
   pointer-events: none;
 }
 
+.hero-wordmark {
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(96px, 22vw, 460px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  background: linear-gradient(112deg, #6d28d9 0%, #7c3aed 48%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 12px 36px rgba(124, 58, 237, 0.28));
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-wordmark span {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: url('../images/team-hero.png') center 30% / cover no-repeat;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 34%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.4) 64%, transparent 78%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 34%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.4) 64%, transparent 78%);
+  z-index: 1;
+  background: url('../images/team-hero.png') center 32% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 26%, #000 44%, rgba(0, 0, 0, 0.85) 72%, rgba(0, 0, 0, 0.35) 86%, transparent 98%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 26%, #000 44%, rgba(0, 0, 0, 0.85) 72%, rgba(0, 0, 0, 0.35) 86%, transparent 98%);
 }
 
 @media (max-width: 768px) {
-  .hero-bg {
-    background: url('../images/team-hero.png') center top / 100% auto no-repeat;
-    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.55) 48%, transparent 68%);
-    mask-image: linear-gradient(180deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.55) 48%, transparent 68%);
+  .hero-wordmark {
+    top: 24%;
+    font-size: clamp(68px, 25vw, 220px);
   }
-}
-
-@media (min-width: 769px) {
-  .hero-inner {
-    margin-bottom: clamp(60px, 14vh, 170px);
+  .hero-bg {
+    background-position: center 26%;
   }
 }
 
 .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
   max-width: 860px;
   margin: 0 auto;
-}
-
-.hero-logo {
-  display: block;
-  width: clamp(280px, 40vw, 520px);
-  height: auto;
-  margin: 0 auto 0;
 }
 
 .hero-tag {
